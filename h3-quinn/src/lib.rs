@@ -475,6 +475,11 @@ where
             writing: None,
         }
     }
+
+    #[allow(missing_docs, dead_code)]
+    pub fn quic_stream(&mut self) -> &mut quinn::SendStream {
+        &mut self.stream
+    }
 }
 
 impl<B> quic::SendStream<B> for SendStream<B>

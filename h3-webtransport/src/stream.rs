@@ -95,6 +95,11 @@ impl<S, B> SendStream<S, B> {
     pub(crate) fn new(stream: BufRecvStream<S, B>) -> Self {
         Self { stream }
     }
+
+    #[allow(missing_docs)]
+    pub fn inner(&mut self) -> &mut S {
+        &mut *self.stream.inner()
+    }
 }
 
 impl<S, B> quic::SendStreamUnframed<B> for SendStream<S, B>

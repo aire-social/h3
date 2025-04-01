@@ -437,6 +437,10 @@ impl<S, B> BufRecvStream<S, B> {
             _marker: PhantomData,
         }
     }
+
+    pub fn inner(&mut self) -> &mut S {
+        &mut self.stream
+    }
 }
 
 impl<S, B> BufRecvStream<S, B>
